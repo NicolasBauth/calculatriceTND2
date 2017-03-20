@@ -1,0 +1,16 @@
+L'exponentielle prend deux arguments : 
+- "x", qui sera exposant de e;
+- "nbDecimales", qui correspond au nombre de decimales que l'on veut obtenir;
+
+Elle renvoie "résultat", qui correspond à l'approximation de e^x arrondi à nbDecimales près.
+
+Pour calculer ce résultat, on utilisera la méthode de taylor/mac-laurin, qui permet d'approximer
+la valeur d'une fonction pour un x donné en le décomposant en plusieurs termes que l'on additionne.
+Chaque terme est calculé par rapport au terme précédent. Cette formule est théoriquement infinie,
+mais la valeur des termes rétrécissant de plus en plus, il arrive un moment où leur valeur et celle des
+termes suivants n'influencera plus l'approximation de manière significative. C'est la condition d'arrêt.
+La valeur du terme à partir duquel on arrête d'additionner les termes dépend de la précision que l'on veut
+obtenir, ce qui est la raison pour laquelle le nombre de décimales souhaité est demandé en argument.
+
+La démarche employée pour déterminer le nombre de décimales à imposer sur les facteurs 
+afin de garder la précision voulue est expliquée dans le document word mis à disposition des étudiants.

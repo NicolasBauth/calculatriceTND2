@@ -1,0 +1,10 @@
+Que signifie Pr{X<=x}...?
+Donner la probabilité qu'une distribution normale soit inférieure à une certaine valeur.
+
+Peut-on utiliser fabs?
+Oui
+
+
+Pourquoi utiliser la gestion d'erreur étant donné que la machine semble les gérer elle-même?
+
+A utiliser pour ln(x+1), correct pour les autres
