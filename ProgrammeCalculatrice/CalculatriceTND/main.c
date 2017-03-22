@@ -67,7 +67,7 @@ void main(void) {
 				scanf_s("%lf", &moyenne);
 				printf("Variance: ");
 				scanf_s("%lf", &variance);
-				//resultat = probabilite(x, nbDecimales);
+				//resultat = probabilite(x, 5);
 				break;
 			}
 			case POLYNOME:
