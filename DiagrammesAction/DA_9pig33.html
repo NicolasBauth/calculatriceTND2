@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>DA 9pig33</title></head><body><pre>┌───*<span style="color:#008000"> Taylor</span>
+│ var x -= 1
+│ var degre = 1
+│ var terme = x
+│ var approx = terme
+│ var epsilon = 0.5 * 10^-nbDecimales
+│ 
+│╔══ <span style="color:#0000ff">do while</span>(degre < 50 && fabs(terme) > epsilon)
+│║ terme *= degre
+│║ terme *= -x
+│║ terme /= degre+1
+│║ degre++
+│║ approx += terme
+│╙──
+└──
+ 
+ 
+┌───*<span style="color:#008000"> Ln(x+1)</span>
+│ <span style="color:#0000ff">Obtenir</span> x, nbDecimales
+│ 
+│ var nbIter = 0
+│ var reste = x + 1
+│ 
+│╔══ <span style="color:#0000ff">do while</span>(reste > 1.4)
+│║ reste /= 1.4
+│║ nbIter++
+│╙──
+│ 
+│ <span style="color:#0000ff">┌────────┐</span><span style="color:#0000ff">↓ </span>1.4, nbDecimales
+│ <span style="color:#0000ff">│ Taylor │</span>
+│ <span style="color:#0000ff">└────────┘</span><span style="color:#0000ff">↓ </span>lnA
+│ 
+│ <span style="color:#0000ff">┌────────┐</span><span style="color:#0000ff">↓ </span>reste, nbDecimales
+│ <span style="color:#0000ff">│ Taylor │</span>
+│ <span style="color:#0000ff">└────────┘</span><span style="color:#0000ff">↓ </span>lnB
+│ 
+│ var approximation = nbIter * lnA + lnB
+│ <span style="color:#0000ff">Sortir</span> approximation
+└──
+</pre></body></html>
