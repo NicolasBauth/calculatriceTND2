@@ -31,7 +31,10 @@ void main(void) {
 				printf("Valeur de x: ");
 				scanf_s("%lf", &x);
 				while (x < -0.9) {
-					printf("ln(%f+1) = ERREUR\n", x);
+					printf("ln(%f+1) = ERREUR\nAppuyez sur une touche pour continuer...\n", x);
+					getchar();
+					getchar();
+					system("cls");
 					printf("Valeur de x: ");
 					scanf_s("%lf", &x);
 				}
@@ -76,6 +79,7 @@ void main(void) {
 		else {
 			printf("Mauvais numero entre");
 		}
+		printf("Appuyez sur une touche pour continuer...\n");
 		getchar();
 		getchar();
 		system("cls");
@@ -149,7 +153,6 @@ double conversionDegreToRadiant(double degre) {
 
 
 double taylor(double x, int nbDecimales) {
-
 	x -= 1;
 	int degre = 1;
 	double terme = x;
@@ -157,16 +160,11 @@ double taylor(double x, int nbDecimales) {
 	double epsilon = 0.5 * pow(10, -nbDecimales);
 
 	while (degre < 50 && fabs(terme) > epsilon) {
-
-		//printf("%d - %f\n", degre, approx);
-
 		terme *= degre;
 		terme *= -x;
 		terme /= degre + 1;
 		degre++;
 		approx += terme;
-
-
 	}
 
 	return approx;
@@ -178,13 +176,16 @@ double logarithmeNep(double x, int nbDecimales) {
 	while (reste > LNCALCUL) {
 		reste /= LNCALCUL;
 		nbIter++;
-
 	}
-	//printf("\n le nombre %f a %d fois 1.4\n", x+1, nbIter); 
 	double lnA = taylor(LNCALCUL, nbDecimales);
-	//printf("\n résultat ln(1.4) %f\n", lnA);
 	double lnB = taylor(reste, nbDecimales);
-	//printf("\n résultat ln(%f) %f\n", nb, lnB);
 	double approxim = nbIter*lnA + lnB;
 	return approxim;
+}
+
+void obtentionCoefficientsPolynome(double tabCoefficients[]) {
+	for (int i = 10; i > 0; i--) {
+		printf("Valeur de x%d: ", i);
+		scanf_s("%lf", tabCoefficients[i]);
+	}
 }
