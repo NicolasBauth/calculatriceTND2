@@ -6,6 +6,9 @@
 #include <ctype.h>
 
 #define ITERRATIONMAX 200
+#define PI 3.14159265358979
+#define ANGLECERCLE 360
+#define DEMICERCLE 180
 
 enum choix {
 	EXPONENTIELLE = 1,
@@ -21,6 +24,8 @@ Choix menu(void);
 bool verifDecimales(double reel1, double reel2, int nbDecimales);
 void afficheDecimales(double reel, int nbDecimales);
 double exponentielle(double x, int nbDecimales);
+double sinus(double x, int nbDecimales);
+double conversionDegreToRadiant(double degre);
 
 void main(void) {
 	bool ARecommencer = true;
@@ -34,7 +39,7 @@ void main(void) {
 		switch (operationMath) {
 			case EXPONENTIELLE:
 				printf("exp(x)\n");
-				printf("Valeur de x: \n");
+				printf("Valeur de x: ");
 				scanf_s("%lf", &x);
 				printf("Nombre de décimales correctes à afficher: ");
 				scanf_s("%d", &nbDecimales);
@@ -42,27 +47,27 @@ void main(void) {
 				break;
 			case LOGNEPERIEN:
 				printf("ln(1+x)\n");
-				printf("Valeur de x: \n");
-				scanf_s("%d", &x);
+				printf("Valeur de x: ");
+				scanf_s("%lf", &x);
 				printf("Nombre de décimales correctes à afficher: ");
 				scanf_s("%d", &nbDecimales);
 				//resultat = logarithmeNep(x, nbDecimales);
 				break;
 			case SINUS:
 				printf("sin(x)\n");
-				printf("Valeur de x: \n");
-				scanf_s("%d", &x);
+				printf("Valeur de x: ");
+				scanf_s("%lf", &x);
 				printf("Nombre de décimales correctes à afficher: ");
 				scanf_s("%d", &nbDecimales);
-				//resultat = sinus(x, nbDecimales);
+				resultat = sinus(conversionDegreToRadiant(x), nbDecimales);
 				break;
 			case PROBABILITE:
 			{
 				double moyenne;
 				double variance;
 				printf("P(X <= x)\n");
-				printf("Valeur de x: \n");
-				scanf_s("%d", &x);
+				printf("Valeur de x:");
+				scanf_s("%lf", &x);
 				printf("Moyenne: ");
 				scanf_s("%lf", &moyenne);
 				printf("Variance: ");
@@ -73,18 +78,23 @@ void main(void) {
 			case POLYNOME:
 				printf("Polynome de degre max 10");
 				printf("Valeur de x0: \n");
-				scanf_s("%d", &x);
+				scanf_s("%lf", &x);
 				printf("Nombre de décimales correctes à afficher: ");
 				scanf_s("%d", &nbDecimales);
 				//resultat = polynome(x, nbDecimales);
 				break;
 		}
-		afficheDecimales(resultat, nbDecimales);
+		if (operationMath > 0 && operationMath < 6) {
+			afficheDecimales(resultat, nbDecimales);
+		}
+		else {
+			printf("Mauvais numero entre");
+		}
 		getchar();
 		getchar();
 		system("cls");
 		printf("Voulez vous continuer (y/n)? ");
-		scanf_s("%c", &continuer);
+		scanf_s("%c", &continuer, 1);
 		ARecommencer = tolower(continuer) != 'n';
 	}
 
@@ -104,6 +114,17 @@ Choix menu(void) {
 	return operationMath;
 }
 
+double sinus(double x, int nbDecimales) {
+	double resultat = x;
+	double resultatPrec = 0;
+	double terme = resultat;
+	for (int i = 1; i < ITERRATIONMAX && !verifDecimales(resultat, resultatPrec, nbDecimales + 1); i += 2) {
+		resultatPrec = resultat;
+		terme *= ((-x*x) / ((i + 1)*(i + 2)));
+		resultat += terme;
+	}
+	return resultat;
+}
 
 double exponentielle(double x, int nbDecimales) {
 	double numerateur = x;
@@ -111,7 +132,7 @@ double exponentielle(double x, int nbDecimales) {
 	double denominateur = 1;
 	int i = 1;
 	double resultatPrec = 0;
-	while (i < ITERRATIONMAX && !verifDecimales(resultat, resultatPrec, nbDecimales)) {
+	while (i < ITERRATIONMAX && !verifDecimales(resultat, resultatPrec, nbDecimales+1)) {
 		resultatPrec = resultat;
 		denominateur *= i;
 		resultat += numerateur / denominateur;
@@ -128,4 +149,14 @@ bool verifDecimales(double reel1, double reel2, int nbDecimales) {
 
 void afficheDecimales(double reel, int nbDecimales) {
 	printf("Resultat: %.*f \n", nbDecimales, reel);
+}
+
+double conversionDegreToRadiant(double degre) {
+	while (degre > ANGLECERCLE && degre > 0) {
+		degre -= ANGLECERCLE;
+	}
+	while (degre < 0 && degre < ANGLECERCLE) {
+		degre += ANGLECERCLE;
+	}
+	return degre * PI / DEMICERCLE;
 }
