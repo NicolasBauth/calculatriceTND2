@@ -60,7 +60,6 @@ int main (void){
 	//printf("\n résultat ln(%f) %f\n", nb, lnB);
 
 	double approxim = nbIter*lnA+lnB;
-
-	printf("\n résultat final : %f\n", approxim);	
+	return approxim;
 
 }

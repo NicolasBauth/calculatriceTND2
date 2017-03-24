@@ -1,6 +1,6 @@
-#ifndef ENUM.H
+#ifndef ENUM_H
 
-#define ENUM.H
+#define ENUM_H
 
 enum choix {
 	EXPONENTIELLE = 1,

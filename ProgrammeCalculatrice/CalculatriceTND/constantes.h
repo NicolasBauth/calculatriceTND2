@@ -1,10 +1,11 @@
-#ifndef CONSTANTES.H
+#ifndef CONSTANTES_H
 
-#define CONSTANTES.H
+#define CONSTANTES_H
 
 #define ITERRATIONMAX 200
 #define PI 3.14159265358979
 #define ANGLECERCLE 360
 #define DEMICERCLE 180
+#define LNCALCUL 1.4
 
 #endif

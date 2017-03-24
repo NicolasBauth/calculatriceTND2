@@ -30,9 +30,14 @@ void main(void) {
 				printf("ln(1+x)\n");
 				printf("Valeur de x: ");
 				scanf_s("%lf", &x);
+				while (x < -0.9) {
+					printf("ln(%f+1) = ERREUR\n", x);
+					printf("Valeur de x: ");
+					scanf_s("%lf", &x);
+				}
 				printf("Nombre de décimales correctes à afficher: ");
 				scanf_s("%d", &nbDecimales);
-				//resultat = logarithmeNep(x, nbDecimales);
+				resultat = logarithmeNep(x, nbDecimales);
 				break;
 			case SINUS:
 				printf("sin(x)\n");
@@ -140,4 +145,46 @@ double conversionDegreToRadiant(double degre) {
 		degre += ANGLECERCLE;
 	}
 	return degre * PI / DEMICERCLE;
+}
+
+
+double taylor(double x, int nbDecimales) {
+
+	x -= 1;
+	int degre = 1;
+	double terme = x;
+	double approx = terme;
+	double epsilon = 0.5 * pow(10, -nbDecimales);
+
+	while (degre < 50 && fabs(terme) > epsilon) {
+
+		//printf("%d - %f\n", degre, approx);
+
+		terme *= degre;
+		terme *= -x;
+		terme /= degre + 1;
+		degre++;
+		approx += terme;
+
+
+	}
+
+	return approx;
+}
+
+double logarithmeNep(double x, int nbDecimales) {
+	int nbIter = 0;
+	double reste = x + 1;
+	while (reste > LNCALCUL) {
+		reste /= LNCALCUL;
+		nbIter++;
+
+	}
+	//printf("\n le nombre %f a %d fois 1.4\n", x+1, nbIter); 
+	double lnA = taylor(LNCALCUL, nbDecimales);
+	//printf("\n résultat ln(1.4) %f\n", lnA);
+	double lnB = taylor(reste, nbDecimales);
+	//printf("\n résultat ln(%f) %f\n", nb, lnB);
+	double approxim = nbIter*lnA + lnB;
+	return approxim;
 }
