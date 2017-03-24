@@ -29,11 +29,14 @@ double taylor(double x, int nbDecimales){
 
 int main (void){
 
-	double x = 0;
-	int nbDecimales = 0;
+	double x = -1;
+        int nbDecimales = 0;
 
-	printf("Entrez x\n");
-	scanf("%lf", &x);
+        while (x < -0.9){
+                printf("Entrez x\n");
+                scanf("%lf", &x);
+                if(x < -0.9) printf("ln(%f+1) = ERREUR\n", x);
+        }
 
         printf("Entrez nbDecimales\n");
         scanf("%d", &nbDecimales);
@@ -52,7 +55,7 @@ int main (void){
 
 	//printf("\n résultat ln(1.4) %f\n", lnA);
 
-	double lnB = taylor(nb, nbDecimales);
+	double lnB = taylor(reste, nbDecimales);
 
 	//printf("\n résultat ln(%f) %f\n", nb, lnB);
 
