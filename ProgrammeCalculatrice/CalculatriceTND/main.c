@@ -1,5 +1,31 @@
-#include "constantes.h"
-#include "prototypes.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <stdbool.h>
+#include <string.h>
+#include <ctype.h>
+
+#define ITERRATIONMAX 200
+#define PI 3.14159265358979
+#define ANGLECERCLE 360
+#define DEMICERCLE 180
+
+enum choix {
+	EXPONENTIELLE = 1,
+	LOGNEPERIEN,
+	SINUS,
+	PROBABILITE,
+	POLYNOME,
+};
+
+typedef enum choix Choix;
+
+Choix menu(void);
+bool verifDecimales(double reel1, double reel2, int nbDecimales);
+void afficheDecimales(double reel, int nbDecimales);
+double exponentielle(double x, int nbDecimales);
+double sinus(double x, int nbDecimales);
+double conversionDegreToRadiant(double degre);
 
 void main(void) {
 	bool ARecommencer = true;
