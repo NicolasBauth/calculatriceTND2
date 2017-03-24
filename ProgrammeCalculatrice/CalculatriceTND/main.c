@@ -158,5 +158,5 @@ double conversionDegreToRadiant(double degre) {
 	while (degre < 0 && degre < ANGLECERCLE) {
 		degre += ANGLECERCLE;
 	}
-	return degre * PI / DEMICERCLE
+	return degre * PI / DEMICERCLE;
 }
