@@ -52,7 +52,7 @@ int main (void){
 
 	//printf("\n résultat ln(1.4) %f\n", lnA);
 
-	double lnB = taylor(nb, nbDecimales);
+	double lnB = taylor(reste, nbDecimales);
 
 	//printf("\n résultat ln(%f) %f\n", nb, lnB);
 
