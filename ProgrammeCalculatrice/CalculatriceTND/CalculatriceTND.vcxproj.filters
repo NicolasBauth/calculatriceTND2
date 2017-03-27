@@ -18,6 +18,21 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="exponentielle.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sinus.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="logNep.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="probabilite.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="polynome.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\DiagrammesAction\IDDAGeneral.txt">
@@ -25,13 +40,25 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="enum.h">
+    <ClInclude Include="exponentielle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="prototypes.h">
+    <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="constantes.h">
+    <ClInclude Include="commun.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="logNep.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="polynome.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="probabilite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sinus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

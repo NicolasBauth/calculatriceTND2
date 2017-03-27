@@ -1,6 +1,6 @@
-#ifndef ENUM_H
+#ifndef MAIN_H
 
-#define ENUM_H
+#define MAIN_H
 
 enum choix {
 	EXPONENTIELLE = 1,
@@ -11,5 +11,7 @@ enum choix {
 };
 
 typedef enum choix Choix;
+
+Choix menu(void);
 
 #endif

@@ -146,15 +146,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="exponentielle.c" />
+    <ClCompile Include="logNep.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="polynome.c" />
+    <ClCompile Include="probabilite.c" />
+    <ClCompile Include="sinus.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\DiagrammesAction\IDDAGeneral.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="constantes.h" />
-    <ClInclude Include="enum.h" />
-    <ClInclude Include="prototypes.h" />
+    <ClInclude Include="commun.h" />
+    <ClInclude Include="logNep.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="exponentielle.h" />
+    <ClInclude Include="polynome.h" />
+    <ClInclude Include="probabilite.h" />
+    <ClInclude Include="sinus.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

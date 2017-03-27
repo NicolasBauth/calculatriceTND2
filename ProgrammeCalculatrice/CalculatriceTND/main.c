@@ -1,12 +1,14 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <stdbool.h>
-#include <string.h>
-#include <ctype.h>
+#include "main.h"
+#include "commun.h"
+#include "exponentielle.h"
+#include "logNep.h"
+#include "polynome.h"
+#include "sinus.h"
+#include "probabilite.h"
 
-#include "constantes.h"
-#include "prototypes.h"
+double newtonRaphson(double x0, double tabCoefficients[], int tailleTableau);
+double polynome(double x, double tabCoefficients[], int tailleTableau);
+double polynomePrime(double x, double tabCoefficients[], int tailleTableau);
 
 void main(void) {
 	bool ARecommencer = true;
@@ -65,19 +67,27 @@ void main(void) {
 				break;
 			}
 			case POLYNOME:
-				printf("Polynome de degre max 10");
-				printf("Valeur de x0: \n");
-				scanf_s("%lf", &x);
+			{
+				double tabCoefficients[11];
+				double x0;
+				printf("Polynome de degre max 10\n");
+				printf("Valeur de x0: ");
+				scanf_s("%lf", &x0);
+				for (int i = 0; i < 11; i++) {
+					printf("Valeur du coefficient %d: ", i+1);
+					scanf_s("%lf", &tabCoefficients[i]);
+				}
 				printf("Nombre de décimales correctes à afficher: ");
 				scanf_s("%d", &nbDecimales);
-				//resultat = polynome(x, nbDecimales);
+				//resultat = newtonRaphson(x, tabCoefficients, 11);
 				break;
+			}
 		}
 		if (operationMath > 0 && operationMath < 6) {
 			afficheDecimales(resultat, nbDecimales);
 		}
 		else {
-			printf("Mauvais numero entre");
+			printf("Mauvais numero entre\n");
 		}
 		printf("Appuyez sur une touche pour continuer...\n");
 		getchar();
@@ -104,33 +114,7 @@ Choix menu(void) {
 	return operationMath;
 }
 
-double sinus(double x, int nbDecimales) {
-	double resultat = x;
-	double resultatPrec = 0;
-	double terme = resultat;
-	for (int i = 1; i < ITERRATIONMAX && !verifDecimales(resultat, resultatPrec, nbDecimales + 1); i += 2) {
-		resultatPrec = resultat;
-		terme *= ((-x*x) / ((i + 1)*(i + 2)));
-		resultat += terme;
-	}
-	return resultat;
-}
 
-double exponentielle(double x, int nbDecimales) {
-	double numerateur = x;
-	double resultat = 1;
-	double denominateur = 1;
-	int i = 1;
-	double resultatPrec = 0;
-	while (i < ITERRATIONMAX && !verifDecimales(resultat, resultatPrec, nbDecimales+1)) {
-		resultatPrec = resultat;
-		denominateur *= i;
-		resultat += numerateur / denominateur;
-		numerateur *= x;
-		i++;
-	}
-	return resultat;
-}
 
 bool verifDecimales(double reel1, double reel2, int nbDecimales) {
 	double puissance = pow(10, nbDecimales);
@@ -141,51 +125,10 @@ void afficheDecimales(double reel, int nbDecimales) {
 	printf("Resultat: %.*f \n", nbDecimales, reel);
 }
 
-double conversionDegreToRadiant(double degre) {
-	while (degre > ANGLECERCLE && degre > 0) {
-		degre -= ANGLECERCLE;
-	}
-	while (degre < 0 && degre < ANGLECERCLE) {
-		degre += ANGLECERCLE;
-	}
-	return degre * PI / DEMICERCLE;
-}
-
-
-double taylor(double x, int nbDecimales) {
-	x -= 1;
-	int degre = 1;
-	double terme = x;
-	double approx = terme;
-	double epsilon = 0.5 * pow(10, -nbDecimales);
-
-	while (degre < 50 && fabs(terme) > epsilon) {
-		terme *= degre;
-		terme *= -x;
-		terme /= degre + 1;
-		degre++;
-		approx += terme;
-	}
-
-	return approx;
-}
-
-double logarithmeNep(double x, int nbDecimales) {
-	int nbIter = 0;
-	double reste = x + 1;
-	while (reste > LNCALCUL) {
-		reste /= LNCALCUL;
-		nbIter++;
-	}
-	double lnA = taylor(LNCALCUL, nbDecimales);
-	double lnB = taylor(reste, nbDecimales);
-	double approxim = nbIter*lnA + lnB;
-	return approxim;
-}
 
 void obtentionCoefficientsPolynome(double tabCoefficients[]) {
 	for (int i = 10; i > 0; i--) {
 		printf("Valeur de x%d: ", i);
-		scanf_s("%lf", tabCoefficients[i]);
+		scanf_s("%lf", &tabCoefficients[i]);
 	}
 }
