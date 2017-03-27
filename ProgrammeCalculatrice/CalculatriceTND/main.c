@@ -66,10 +66,12 @@ void main(void) {
 			{
 				double tabCoefficients[NBCOEFFICIENTS];
 				printf("Polynome de degre max 10\n");
-				obtentionCoefficientsPolynome(tabCoefficients);
+				printf("Valeur de x0: ");
+				scanf_s("%lf", &x);
 				printf("Nombre de décimales correctes à afficher: ");
 				scanf_s("%d", &nbDecimales);
-				//resultat = newtonRaphson(x, tabCoefficients, 11);
+				obtentionCoefficientsPolynome(tabCoefficients);
+				resultat = newtonRaphson(x, tabCoefficients, NBCOEFFICIENTS);
 				break;
 			}
 		}
@@ -117,8 +119,8 @@ void afficheDecimales(double reel, int nbDecimales) {
 
 
 void obtentionCoefficientsPolynome(double tabCoefficients[]) {
-	for (int i = 10; i > 0; i--) {
-		printf("Valeur de x%d: ", i);
+	for (int i = 0; i < 11; i++) {
+		printf("Valeur du coefficient %d: ", i);
 		scanf_s("%lf", &tabCoefficients[i]);
 	}
 }
