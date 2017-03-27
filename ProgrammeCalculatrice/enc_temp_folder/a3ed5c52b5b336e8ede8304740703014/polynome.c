@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <math.h>
 #include "polynome.h"
-#include "commun.h"
+
 
 double newtonRaphson(double x0, double tabCoefficients[], int tailleTableau) {
 	double x = x0;
-	for (int i = 0; i < ITERRATIONMAX; i++) {
+	for (int i = 0; i < 200; i++) {
 		x -= f(x, tabCoefficients, tailleTableau) / fprime(x, tabCoefficients, tailleTableau);
 	}
 	return x;

@@ -1,0 +1,30 @@
+---* NewtonRaphson
+
+x = x0
+do 200 times
+ [fonct1=f;x, tabCoefficients, tailleTableau;resultatF]
+ [fonct1=fPrime;x, tabCoefficients, tailleTableau;resultatFPrime]
+x-= resultatF / resultatFPrime
+===
+
+___
+
+
+---* f
+
+resultatF = 0
+indice = 0
+do while (indice < tailleTableau)
+resultatF+= tabCoefficients(i)* x^(tailleTableau-indice-1)
+===
+___
+
+---* fPrime
+
+resultatFPrime = 0
+indice = 0
+do while (indice < tailleTableau)
+resultatFPrime+= (tailleTableau - indice) * x^(tailleTableau-indice-2)
+===
+
+___
