@@ -6,10 +6,6 @@
 #include "sinus.h"
 #include "probabilite.h"
 
-double newtonRaphson(double x0, double tabCoefficients[], int tailleTableau);
-double polynome(double x, double tabCoefficients[], int tailleTableau);
-double polynomePrime(double x, double tabCoefficients[], int tailleTableau);
-
 void main(void) {
 	bool ARecommencer = true;
 	while (ARecommencer) {
@@ -68,15 +64,9 @@ void main(void) {
 			}
 			case POLYNOME:
 			{
-				double tabCoefficients[11];
-				double x0;
+				double tabCoefficients[NBCOEFFICIENTS];
 				printf("Polynome de degre max 10\n");
-				printf("Valeur de x0: ");
-				scanf_s("%lf", &x0);
-				for (int i = 0; i < 11; i++) {
-					printf("Valeur du coefficient %d: ", i+1);
-					scanf_s("%lf", &tabCoefficients[i]);
-				}
+				obtentionCoefficientsPolynome(tabCoefficients);
 				printf("Nombre de décimales correctes à afficher: ");
 				scanf_s("%d", &nbDecimales);
 				//resultat = newtonRaphson(x, tabCoefficients, 11);

@@ -14,10 +14,10 @@ double sinus(double x, int nbDecimales) {
 }
 
 double conversionDegreToRadiant(double degre) {
-	while (degre > ANGLECERCLE && degre > 0) {
+	while (degre > ANGLECERCLE) {
 		degre -= ANGLECERCLE;
 	}
-	while (degre < 0 && degre < ANGLECERCLE) {
+	while (degre < (-1 * ANGLECERCLE)) {
 		degre += ANGLECERCLE;
 	}
 	return degre * PI / DEMICERCLE;

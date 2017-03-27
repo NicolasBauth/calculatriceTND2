@@ -1,0 +1,29 @@
+---* Sinus
+
+resultat = x
+resultatPrec = 0
+terme = resultat
+
+indice = 0
+[module=verifDecimales;resultat,resultatPrec, nbDecimales+1;decimalesCorrectes]
+do while (indice < 200 AND NOT decimalesCorrectes)
+resultatPrec = resultat
+terme*= ((-x*x) / ((indice + 1)*(indice + 2)))
+resultat+= terme
+[module=verifDecimales;resultat,resultatPrec, nbDecimales+1;decimalesCorrectes]
+===
+___
+
+
+
+---* ConversionRadiantDegre
+
+do while (degre > 360)
+degre-= 360
+===
+
+do while (degre < -360)
+degre+= 360
+===
+radiant = degre * 3.141592/180
+___

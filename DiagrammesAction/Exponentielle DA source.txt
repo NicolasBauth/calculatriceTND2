@@ -1,0 +1,18 @@
+---* Exponentielle
+
+numerateur = x
+resultat = 1
+denominateur = 1
+resultatPrec = 0
+
+indice = 0
+[module=verifDecimales;resultat,resultatPrec, nbDecimales+1;decimalesCorrectes]
+do while (indice < 200 AND NOT decimalesCorrectes)
+resultatPrec = resultat
+denominateur *= indice
+resultat+= numerateur/denominateur
+numerateur *= x
+indice++
+[module=verifDecimales;resultat,resultatPrec, nbDecimales+1;decimalesCorrectes]
+===
+___

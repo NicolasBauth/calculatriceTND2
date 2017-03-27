@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>DA cy6ui</title></head><body><pre>┌───*<span style="color:#008000"> Sinus</span>
+│ 
+│ resultat = x
+│ resultatPrec = 0
+│ terme = resultat
+│ 
+│ indice = 0
+│ <span style="color:#0000ff">┌────────────────┐</span><span style="color:#0000ff">↓ </span>resultat,resultatPrec, nbDecimales+1
+│ <span style="color:#0000ff">│ verifDecimales │</span>
+│ <span style="color:#0000ff">└────────────────┘</span><span style="color:#0000ff">↓ </span>decimalesCorrectes
+│╔══ <span style="color:#0000ff">do while </span>(indice < 200 <span style="color:#0000ff">AND</span> NOT decimalesCorrectes)
+│║ resultatPrec = resultat
+│║ terme*= ((-x*x) / ((indice + 1)*(indice + 2)))
+│║ resultat+= terme
+│║ <span style="color:#0000ff">┌────────────────┐</span><span style="color:#0000ff">↓ </span>resultat,resultatPrec, nbDecimales+1
+│║ <span style="color:#0000ff">│ verifDecimales │</span>
+│║ <span style="color:#0000ff">└────────────────┘</span><span style="color:#0000ff">↓ </span>decimalesCorrectes
+│╙──
+└──
+ 
+ 
+ 
+┌───*<span style="color:#008000"> ConversionRadiantDegre</span>
+│ 
+│╔══ <span style="color:#0000ff">do while </span>(degre > 360)
+│║ degre-= 360
+│╙──
+│ 
+│╔══ <span style="color:#0000ff">do while </span>(degre < -360)
+│║ degre+= 360
+│╙──
+│ x = degre * 3.141592/180
+└──
+</pre></body></html>

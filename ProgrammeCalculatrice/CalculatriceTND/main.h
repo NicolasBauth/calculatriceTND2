@@ -2,6 +2,8 @@
 
 #define MAIN_H
 
+#define NBCOEFFICIENTS 11
+
 enum choix {
 	EXPONENTIELLE = 1,
 	LOGNEPERIEN,
@@ -13,5 +15,6 @@ enum choix {
 typedef enum choix Choix;
 
 Choix menu(void);
+void obtentionCoefficientsPolynome(double tabCoefficients[]);
 
 #endif
