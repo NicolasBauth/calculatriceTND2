@@ -5,11 +5,8 @@
 
 
 double newtonRaphson(double x0, double tabCoefficients[], int tailleTableau) {
-
-	//printf("Iteration 0 : %.15f \n", x0);
-	for (int i = 0; i < 200; i++) {
+	for (int i = 0; i < 20; i++) {
 		x0 -= f(x0, tabCoefficients, tailleTableau) / fprime(x0, tabCoefficients, tailleTableau);
-		//printf("Iteration %d : %.15f \n", i + 1, x0);
 	}
 	return x0;
 }
