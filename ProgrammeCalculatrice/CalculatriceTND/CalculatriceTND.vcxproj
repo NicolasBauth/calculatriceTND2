@@ -158,12 +158,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="commun.h" />
+    <ClInclude Include="erreur.h" />
     <ClInclude Include="logNep.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="exponentielle.h" />
     <ClInclude Include="polynome.h" />
     <ClInclude Include="probabilite.h" />
     <ClInclude Include="sinus.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="Erreur.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -61,5 +61,13 @@
     <ClInclude Include="sinus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="erreur.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="Erreur.obj">
+      <Filter>Source Files</Filter>
+    </Object>
   </ItemGroup>
 </Project>

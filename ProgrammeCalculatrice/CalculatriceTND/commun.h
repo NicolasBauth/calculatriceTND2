@@ -7,10 +7,7 @@
 #include <math.h>
 #include <stdbool.h>
 #include <ctype.h>
+#include "erreur.h"
 
 #define ITERRATIONMAX 200
-
-bool verifDecimales(double reel1, double reel2, int nbDecimales);
-void afficheDecimales(double reel, int nbDecimales);
-
 #endif

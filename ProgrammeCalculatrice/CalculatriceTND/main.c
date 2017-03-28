@@ -106,18 +106,6 @@ Choix menu(void) {
 	return operationMath;
 }
 
-
-
-bool verifDecimales(double reel1, double reel2, int nbDecimales) {
-	double puissance = pow(10, nbDecimales);
-	return ((round(reel1*puissance) / puissance) == (round(reel2*puissance) / puissance));
-}
-
-void afficheDecimales(double reel, int nbDecimales) {
-	printf("Resultat: %.*f \n", nbDecimales, reel);
-}
-
-
 void obtentionCoefficientsPolynome(double tabCoefficients[]) {
 	for (int i = 0; i < 11; i++) {
 		printf("Valeur du coefficient %d: ", i);
